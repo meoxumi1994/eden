@@ -53,6 +53,12 @@ app.post('/import_data', (req, res) => {
     .catch((error) => res.status(403).send(error))
 })
 
+
+
+app.get('/check', (req,res) => {
+  res.send("Success")
+})
+
 app.get('/', (req, res) => {
   Data.find({})
     .then(datas => {
