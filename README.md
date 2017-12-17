@@ -10,13 +10,19 @@ the second you need to download Nodejs : https://nodejs.org/en/download/
 the third you need to download Mongodb : https://www.mongodb.com/download-center
 after you install mongodb, run server mongo
 
-# go to /server
+# run Server
+if you want to run on localhost, go to server/index.js , change `whitelist` = ['http://localhost:3000']
+then
 ```
+cd /server
 npm i
 node index.js
 ```
-# go to /client 
+# run Client 
+if you want to run on localhost, go to client/src/config.js , change  `SERVER_EDEN_IP` : ['http://localhost:3333/']
+then
 ```
+cd /client
 npm i
 npm start
 ```
