@@ -11,8 +11,8 @@ the third you need to download Mongodb : https://www.mongodb.com/download-center
 after you install mongodb, run server mongo
 
 # go to /server
-> npm i
-> node index.js
+npm i
+node index.js
 # go to /client 
-> npm i
-> npm start
+npm i
+npm start
