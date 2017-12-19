@@ -22,7 +22,6 @@ class Admin extends Component {
         headers: {
             "Content-Type": "application/json",
         },
-        credentials: 'include',
         method: 'POST',
         body: JSON.stringify(body)
       }).then((response) => response.json())

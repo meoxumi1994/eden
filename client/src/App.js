@@ -33,7 +33,6 @@ class App extends Component {
       headers: {
           "Content-Type": "application/json",
       },
-      credentials: 'include',
       method: 'GET',
     }).then((response) => response.json())
     .then(res => {
@@ -184,6 +183,7 @@ class App extends Component {
             {text.map((value, index) => <div key={index}>{value}</div>)}
           </div>
         </div>
+
         {(!this.state.loss_internet && that.state.data[this.state.current_id].speech) ?
           <div style={{ backgroundColor: 'white', height: '4.5vh', fontSize: '2.7vh', textAlign: 'center', }}>
             <div style={{ height: '0.7vh' }}></div>
