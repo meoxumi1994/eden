@@ -10,6 +10,7 @@ the second you need to download Nodejs : https://nodejs.org/en/download/
 the third you need to download Mongodb : https://www.mongodb.com
 after you install mongodb, run server mongo
 # run
+```
 cd /client
 npm i
 npm start
