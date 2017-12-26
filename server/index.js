@@ -6,16 +6,9 @@ const cors = require('cors')
 
 const Data = require('./models/Data')
 
-var whitelist = ['http://localhost:3000']
-
-var corsOptions = {
-  origin: whitelist[0],
-  credentials: true
-}
-
 console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS)
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -29,24 +22,25 @@ app.post('/import_data', (req, res) => {
     .then(() => {
       return Promise.all(csv.split(/\r\n|\n/).map((line, line_index) => {
         const data = line.split("|")
-        if(!data) {
+        if(!data || data.length < 8) {
           log.push("error in row " + line_index + " data null")
           return;
         }
-        if( data[2] != 'false' && data[2] != 'true' ) {
-          log.push("error in row " + line_index + " column 3th expect Boolean")
-          return;
-        }
+
         return Data.create({
           id: data[0],
           role: data[1],
-          speech: data[2],
-          background: data[3],
+          name: data[2],
+          speech: data[3],
           audio: data[4],
-          text: data[5],
+          background: data[5],
+          text: data[6],
+          background_music: data[7],
+          next_id: data[8],
         })
         .then(data => {})
         .catch(err => log.push("error in row " + line_index + " " + err))
+
       }))
     })
     .then(() => res.send({ status: 'all is update except log', log: log }) )

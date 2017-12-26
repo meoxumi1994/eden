@@ -12,11 +12,12 @@ class Dictaphone extends Component {
     }
   }
   componentDidMount(){
-    const { resetTranscript } = this.props
+    const { resetTranscript, onChange } = this.props
 
     setInterval(() => {
       if(this.state.interact_time == 1){
         resetTranscript()
+        onChange('')
       }
 
       if(this.state.interact_time > 0 ){
@@ -27,6 +28,7 @@ class Dictaphone extends Component {
     setInterval(() => {
       if(this.state.interact_time == 0){
         resetTranscript()
+        onChange('')
       }
     }, 5000);
   }
@@ -40,6 +42,7 @@ class Dictaphone extends Component {
     if(current_reset != reset){
       current_reset = reset
       resetTranscript()
+      onChange('')
     }
   }
   render() {

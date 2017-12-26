@@ -3,7 +3,7 @@ const getScore = (text, record_text, result) => {
   record_text = record_text.toLowerCase()
 
   text = text.replace(/[.,!?]+/g, '')
-  record_text = record_text.replace(/[.,!]+/g, '')
+  record_text = record_text.replace(/[.,!?]+/g, '')
 
   text = text.toString().split(" ");
   record_text = record_text.toString().split(" ");
